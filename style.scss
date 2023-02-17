@@ -35,6 +35,12 @@ $bg-menu : #1F1D1D;
 %title{
     color :  $color_title;
     font-family: $title_ff;
+    font-weight: 700;
+}
+%nav{
+    font-family: $title_ff;
+    color: $body-color;
+    font-weight: 400;
 }
 %brand{
     font-family: $brand_ff;
@@ -55,17 +61,12 @@ $bg-menu : #1F1D1D;
         @return transparent;
    }
 }
-//Span Boolean
-@function animation($isSpan, $prop){
-      @if($isSpan) {
-        @return background;
-      } 
-      @else{
-        @return transform; 
-      }
+
+@keyframes hi {
+    0%{
+        right: -100%;
+    }
 }
-
-
 //Animation Hover Btn 
 // Animation Hamburger
 
@@ -81,86 +82,118 @@ body{
     height: 100vh;
     color: $body-color ;
     background-color: #262626;
-    overflow-x: hidden;
+   
+    
+}
+nav{
+    
+        display: none;
+        position: fixed;
+        
+        top :  0%;
+        
+       
+        width: 100%;
+        height: 100%;
+        
+        .links{
+            background-color: $bg-menu;
+            position: relative;
+            right : -100%;
+            
+            width: 100%;
+            height: 100%;
+            @include flex();
+            a{
+                display: block;
+                padding: 10px;
+                @extend %nav;
+                font-size: 20px;
+                text-decoration: none;
+            }
+        }
+        .img-container{
+            display: none;
+        }
+        &.active{
+            display: block;
+            .links{
+            transition: right 2s linear 0.1s;
+            right:0; 
+            }
+          
+            
+            
+            
+        
+    }
+   
+
+}
+.menu{
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    position: fixed;
+    left: 80%;
+    cursor: pointer;
+   
+    span{
+        background-color: $hamburger;
+        display: block;
+        width: 70%;
+        height: 3px;
+        color: $hamburger;
+        z-index: 3;
+        position: relative;
+        &::before{
+            background-color: $hamburger;
+            content: "";
+            display: block;
+            transform: translateY(-8px);
+            width: 100%;
+            height: 3px;
+        }
+        &::after{
+            background-color: $hamburger;
+            content: "";
+            display: block;
+            transform: translateY(5px);
+            width: 100%;
+            height: 3px;
+        }
+    }
+&.active{
+    span{
+        transform: rotate(-90deg);
+        transition: transform 1s linear 0.1s ;
+        background-color: transparent;
+        transition: background-color 1s linear 0.5s;
+        &::before{
+            transition: transform 1s linear 1s;
+            transform: rotate(45deg);
+        }
+        &::after{
+            transition: transform 1s linear 1s;
+            transform: rotate(-45deg);
+        }
+        
+    
+    
+} 
+    
+}    
 }
 header{
     background: url("/ressources/bg.jpeg") no-repeat center ;
     background-size: cover;
     width: 100%;
-    height: 100vh;
-    @include flex($justify-content:flex-start);
+    height: 100%;
+    @include flex();
     margin-bottom: 10px;
-    nav{
-        align-self: baseline;
-        
-        button{
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            border: none;
-            position: relative;
-            left: 80%;
-            cursor: pointer;
-           
-            span{
-                background-color: $hamburger;
-                display: block;
-                width: 70%;
-                height: 3px;
-                color: $hamburger;
-                z-index: 3;
-                position: relative;
-                &::before{
-                    background-color: $hamburger;
-                    content: "";
-                    display: block;
-                    transform: translateY(-8px);
-                    width: 100%;
-                    height: 3px;
-                }
-                &::after{
-                    background-color: $hamburger;
-                    content: "";
-                    display: block;
-                    transform: translateY(5px);
-                    width: 100%;
-                    height: 3px;
-                }
-            }
-        &.active{
-            span{
-                transition: transform 2s ease-in-out 0.5s;
-                transform: rotate(-90deg);
-                
-            }
-            
-        }    
-        }
-
-    }
-    .nav-container{
-        display: none;
-        &.active{
-            width: 100%;
-            height: 100vh;
-            display: block;
-            background-color: $bg-menu;
-            .img-container{
-                display: none;
-            }
-            .links{
-                width: 100%;
-                height: 100%;
-                @include flex();
-                a{
-                    display: block;
-                    padding: 10px;
-                    font-family: $subtitle_ff;
-                    color : $body-color;
-                }
-            }
-        }
-    }
+    
+    
     p{
         font-family: $brand_ff;
         margin-bottom: 50px;
@@ -279,6 +312,65 @@ footer{
     }
 }
 @media screen and (min-width:800px) {
+    nav{
+        @include flex($direction:row);
+        
+            width: 100%;
+            .links{
+                width: 50%;
+                height: 100%;
+                
+            }
+        
+       
+        .img-container{
+            left: -100%;
+            perspective: 200px;
+            display: none;
+            width: 50%;
+            height: 100%;
+            position: relative;
+            background-color: #262626;
+            margin-left: 0;
+            img{
+                width: 40%;
+                height: 20%;
+                border-radius: 5px;
+            }
+            .img1{
+                top: 25%;
+                position: absolute;
+                left: 20%;
+                transform: translateZ(-50px);
+                
+               
+            }
+            .img2{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) translateZ(-25px);
+                
+            }
+            .img3{
+
+                position: absolute;
+                top: 55%;
+                left: 60%;
+                transform: translateZ(-20px);
+               
+                
+            }
+        }
+        &.active{
+            display: flex;
+            .img-container{
+                display: block;
+                left: 0;
+                transition: left 2s linear 0.1s;
+            }
+        }
+    }
     #gallery{
         height: 900px;
         @include flex($direction : row, $align:start, $justify-content: flex-start);
