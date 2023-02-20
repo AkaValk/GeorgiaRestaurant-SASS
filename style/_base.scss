@@ -1,0 +1,63 @@
+// VARIABLES
+$brand_ff  : "Nunito", sans-serif;  
+$title_ff : "Dancing Script", cursive; 
+$subtitle_ff : "Josefin Sans", sans-serif; 
+
+$color_title : #D3AB55;
+
+/** Parametres Button */
+$bg_btn : #D3AB55;
+$btn_border : #D3AB55;
+
+// Paramètres par défaut
+$body-color : #fff;
+$bg-color : #262626;
+
+//OVERLAY
+$bg-overlay : rgba(251, 192, 147, 0.8);
+
+// MENU RIDEAU ET LIGNES HAMBURGER
+$bg-menu : #1F1D1D;
+$hamburger : #D3AB55;
+
+
+@mixin flex($align: center, $justify-content : center, $direction: column){
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align;
+    flex-direction: $direction;
+
+};
+@mixin button($color){
+border: $btn_border 1px solid;
+background: set-color($color);
+color: $color_btn; 
+width: 100px;
+height: 30px;
+font-family: $subtitle_ff;
+font-weight: 300;
+text-transform: uppercase;
+}
+
+@function set-color($color){
+    @if(lightness($color)>40){
+         @return #fff; 
+    }
+    @else{
+         @return transparent;
+    }
+ }
+
+
+ *,::before,::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    color: $body-color ;
+    background-color: #262626;
+   
+    
+}us

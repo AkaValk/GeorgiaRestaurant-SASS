@@ -22,16 +22,21 @@ $bg-menu : #1F1D1D;
         flex-direction: $direction;
 
 };
+@mixin font-size($sizeValue){
+    font-size:  $sizeValue * 0.1rem;
+}
 @mixin button($color){
-    border: $btn_border 1px solid;
+    border: $btn_border 2px solid;
     background: set-color($color);
     color: $color_btn; 
-    width: 100px;
-    height: 30px;
+    width: 200px;
+    height: 50px;
     font-family: $subtitle_ff;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
+    @include font-size($sizeValue:12)
 }
+
 %title{
     color :  $color_title;
     font-family: $title_ff;
@@ -62,17 +67,9 @@ $bg-menu : #1F1D1D;
    }
 }
 
-@keyframes hi {
-    0%{
-        right: -100%;
-    }
-}
 //Animation Hover Btn 
-// Animation Hamburger
 
-// placeholder title italic yellow
-//Placeholder pour Logo + Brand
-//Mixin menu hamburger
+
 *,::before,::after{
     box-sizing: border-box;
     margin: 0;
@@ -82,22 +79,51 @@ body{
     height: 100vh;
     color: $body-color ;
     background-color: #262626;
-   
+    font-size: 62.5%;
+    overflow-x: hidden;
     
 }
-nav{
+.brand{  text-align: center;
+    font-family: $brand_ff;
+    text-transform: uppercase;
+    font-weight: 300;
+    @include font-size(20);
+    margin-bottom: auto;
+    margin-top: 50px;
     
-        display: none;
-        position: fixed;
-        
-        top :  0%;
-        
+    .icon{
+        border: 1px solid #D3AB55; 
+        border-radius: 50%;
+        filter : brightness(1);
+        color: #D3AB55;
+        padding: 10px;
+        margin-right: 10px;
        
+    }
+    &::after{
+        content: "Restaurant";
+        @include font-size(7);
+        opacity : 0.5;
+        position: relative;
+        top :-10px;
+        left: 25px;
+        text-align: center;
+    }
+}
+nav{
+
+        
+        position: fixed;
+        right: 0;
         width: 100%;
         height: 100%;
+        background-color: #262626 ;
+        opacity: 0.3;
         
         .links{
+            
             background-color: $bg-menu;
+            
             position: relative;
             right : -100%;
             
@@ -108,7 +134,9 @@ nav{
                 display: block;
                 padding: 10px;
                 @extend %nav;
-                font-size: 20px;
+
+                @include font-size(16);
+                
                 text-decoration: none;
             }
         }
@@ -116,19 +144,14 @@ nav{
             display: none;
         }
         &.active{
+            background-color: transparent;
             display: block;
+            opacity: 1;
             .links{
-            transition: right 2s linear 0.1s;
+            transition: right 0.7s linear 0.1s;
             right:0; 
-            }
-          
-            
-            
-            
-        
+            }   
     }
-   
-
 }
 .menu{
     width: 50px;
@@ -136,7 +159,8 @@ nav{
     background: transparent;
     border: none;
     position: fixed;
-    left: 80%;
+    left: 90%;
+    top: 3%;
     cursor: pointer;
    
     span{
@@ -177,12 +201,8 @@ nav{
         &::after{
             transition: transform 1s linear 1s;
             transform: rotate(-45deg);
-        }
-        
-    
-    
-} 
-    
+        }  
+}  
 }    
 }
 header{
@@ -194,23 +214,50 @@ header{
     margin-bottom: 10px;
     
     
-    p{
+    p{  text-align: center;
         font-family: $brand_ff;
-        margin-bottom: 50px;
+        text-transform: uppercase;
+        font-weight: 300;
+        @include font-size(60);
+        margin-bottom: auto;
+        margin-top: 50px;
+        
+        #icon{
+            border: 1px solid #D3AB55; 
+            border-radius: 50%;
+            filter : brightness(1);
+            color: #D3AB55;
+            padding: 10px;
+            margin-right: 10px;
+           
+        }
+        &::after{
+            content: "Restaurant";
+            @include font-size(7);
+            opacity : 0.5;
+            position: relative;
+            top :-10px;
+            left: 25px;
+            text-align: center;
+        }
     }
     h1{
+        
         font-family: $title_ff;
         color: $color_title;
-        font-size: 3rem;
-        margin-bottom: 20px;
+        @include font-size(40);
+       
     }
     h2{
         font-family: $subtitle_ff;
+        text-align: center;
+        @include font-size(20);
         font-weight: 300;
-        margin-bottom: 50px;
+        
     }
     button{
         @include button($color: #000 );
+        margin-bottom: auto;
     }
 }
 
@@ -234,20 +281,23 @@ header{
         height: 49%;
         h2{
             @extend %title;
-            font-size: 2rem;
+            @include font-size(25)
             
         }
         h3{
             font-family: $subtitle_ff;
             font-weight: 300;
+            @include font-size(18)
         }
         span{
+            @include font-size(15);
             color: #D3AB55;
             display: block;
         }
         p{
             @extend %p;
             font-style: italic;
+            @include font-size(12)
         }
         button{
             @include button($color: #000)
@@ -272,16 +322,12 @@ header{
             
         }
         .img-overlay{
-            opacity: 0;
-        }
-        &:hover{
-            .img-overlay{
-                opacity: 1;
+                opacity: 0;
                 background-color: $bg-overlay;
                 width: 100%;
                 height: 100%;
                 position: relative;
-                top: -101%;
+                top: -100%;
                 left: 0;
                 
                 text-align: center;
@@ -292,6 +338,11 @@ header{
                 button{
                     @include button($color:orange)
                 }
+            
+        }
+        &:hover{
+            .img-overlay{
+                opacity: 1;
             }
         }
     }
@@ -303,6 +354,8 @@ footer{
         
     }
     .network{
+        width: 100%;
+        height: 20%;
         @include flex($direction: row);
         a{  width: 30px;
             height: 30px;
@@ -326,7 +379,7 @@ footer{
         .img-container{
             left: -100%;
             perspective: 200px;
-            display: none;
+            display: block;
             width: 50%;
             height: 100%;
             position: relative;
@@ -367,10 +420,11 @@ footer{
             .img-container{
                 display: block;
                 left: 0;
-                transition: left 2s linear 0.1s;
+                transition: left 0.7s linear 0.1s;
             }
         }
     }
+
     #gallery{
         height: 900px;
         @include flex($direction : row, $align:start, $justify-content: flex-start);
@@ -378,7 +432,19 @@ footer{
        align-content: flex-start;
     }
 }
+    #us{
+        .img-container{
+            img{
+                width: 50%;
+                margin-left: 25%;
+               
+            }
+        }
+}
 @media screen and (min-width:1000px) {
+    nav{
+        @include flex($justify-content:flex-start,$direction:row)
+    }
     #us{
         width: 100%;
         height: 100vh;
@@ -386,18 +452,24 @@ footer{
         .img-container{
             width : 40%;
             height: 50%;
+            img{
+                margin: 0;
+                width: 80%;
+                height: 80%;
+            }
         }
         .text{
             text-align: left;
             @include flex();
-            width: 40%;
+            width: 60%;
+            height: 100%;
         }
         h2,h3,span, button{
             text-align: center;
         }
         p{
-            width: 60%;
-            font-size: 1.5rem;
+            width: 90%;
+           
         }
     }
     #gallery{
