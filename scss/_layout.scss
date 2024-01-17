@@ -1,0 +1,169 @@
+/**NAVBAR*/
+nav {
+    position: fixed;
+    z-index: 3; 
+    @include flexCenter(); 
+    justify-content: space-between;
+    flex-direction: row;
+    @extend %containerFull;
+    /**LEFT DESKTOP*/
+    .img-container{
+        position: fixed;
+        left: -100vw;
+        display: block;
+        @include size(50%,100% );
+        background-color: $menu-bg;
+        transition: left 0.5s ease-in-out ;
+        /**PARAMETRES IMAGES*/
+        img{
+            position: absolute;
+            @include size(50%, auto );
+            border-radius: 5px;
+            box-shadow: 0 10px 20px $black;
+        }
+        /**POSITIONER CHAQUE IMAGE*/
+        .img1{
+            top:15%;
+            left: 15%;
+        }
+        .img2{
+           top:30%;
+           left: 20%;                
+        }
+        .img3{
+            top:50%;  
+            left: 30%; 
+        }
+    }
+    /**RIGHT SIDE **/
+    .links{
+        position: fixed;
+        @include size(50%,100% );
+        background-color : $menu-bg;
+        right: -50vw;
+        @include flexCenter();
+        flex-direction: column;
+        transition: right 0.5s ease-in-out ;
+        a{  
+            font-size: 2rem;
+            font-family: $title_ff;
+            text-decoration: none;
+            color: $secondary;
+            text-align: center;
+            margin: 10px;
+            transition: color 0.5s ease-in-out;
+            /*ANIMATION HOVER**/
+            &:hover{
+                color : $primary;
+                letter-spacing: 2px;
+            }
+        }
+}
+/**ANIMATION LORSQUE NAV EST ACTIVE*/
+ &.active{
+    .links{
+        right: 0;
+    }
+    .img-container{
+        left: 0;
+
+ }
+}       
+}
+/**HEADER**/  
+header{
+    background: linear-gradient(rgba($black, .8), rgba($black, .6)),url("/ressources/bg.jpeg") no-repeat center ;
+    background-size: cover;
+    @extend %containerFull;
+    
+    /**BRAND POSITIONING**/
+    .brand{
+        display: flex;
+        align-items: center;
+        @include position($top: 10%)
+    }
+    .header-text{
+        text-align: center;
+        @include position(50%)
+    }
+    button{
+        @include button( );
+        
+    }
+}
+
+/**SECTION ABOUT US**/
+#us{
+    /**PARAMETRES CONTAINER*/
+    @extend %containerFull;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    /**CONTAINER LEFT*/
+    .img-container{
+        @include size($width:40%, $height:auto );
+        img{
+            @include size($width : 100% , $height: auto )
+        }
+    }
+    /**CONTAINER RIGHT*/
+    .text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include size($width:60%, $height:auto);
+        padding: 0 100px;
+        /**ETOILES*/
+        span{
+            font-size: 15px;
+            color: #D3AB55;
+            display: block;
+            
+        }
+        p{  
+            font-family: $subtitle_ff;
+            font-style: italic;
+            color :$secondary;
+            font-size: 20px;
+            margin: 10px
+        }
+        button{ 
+            @include button()
+        }
+    }
+}
+/**GALLERY**/
+#gallery{
+
+  
+    display: flex;
+    flex-wrap: wrap;
+} 
+footer{
+    padding: 70px 0;
+    @include flexCenter();
+    flex-direction: column;
+    align-items: center;
+    .brand{
+        display: flex;
+
+    }
+    /*RESEAUX SOCIAUX**/
+    .network{
+        margin: 20px 0;
+        @include flexCenter();
+        justify-content: space-between;
+        a{  width: 30px;
+            height: 30px;
+            padding-left: 10px;
+            color: #fff;
+        }
+    }
+    /**COPYRIGHT*/
+    .copyright{
+        font-family: $subtitle_ff;
+        font-size: 18px;
+        color:  $secondary;
+        @include pStyle(capitalize)
+    }
+}

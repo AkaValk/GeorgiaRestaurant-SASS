@@ -1,0 +1,182 @@
+
+
+/**%subtitle {
+  text-align: center;
+  font-family: $subtitle_ff;
+  text-align: center;
+  @include font-size(20);
+  font-weight: 300;
+  %title {
+    color: $color_title;
+    font-family: $title_ff;
+    font-weight: 700;
+    text-align: center;
+    @include font-size(50);
+  
+  }
+  %brand {
+  font-family: $brand_ff;
+  text-transform: uppercase;
+}
+
+}*/
+
+
+/**MENU HAMBURGER**/
+/*BUTTON**/
+.menu {
+  @include size($width: 50px, $height: 50px);
+  background: transparent;
+  border: none;
+  position: fixed;
+  right: 5%;
+  top: 5%;
+  cursor: pointer;
+  z-index: 99999;
+/* LIGNE **/
+  span {
+    background-color: $primary;
+    display: block;
+    height: 4px;
+    position: relative;
+    transition: all 0.5s linear;
+    transform-origin: center;
+/*CREATION DES DEUX AUTRES LIGNES AVEC PSEUDO ELEMENT**/    
+    &::before {
+        @extend %hamburger;
+        transform : translateY(-12px)
+    }
+    &::after {
+      transform : translateY(8px);
+      @extend %hamburger;
+    }
+  }
+  /**ANIMATION MENU HAMBURGER**/
+  &.active {
+    /*ROTATE PUIS DISPARAIT*/
+    span {
+      transform: rotate(-90deg);   
+      background-color: transparent;     
+    /**ATTENDS 0.5S PUIS ROTATE*/  
+      &::before { 
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+/**GEORGIA BRAND**/
+/**LOGO**/
+.logo{
+  font-size: 3rem;
+
+  color: $primary;
+  border: $primary 2px solid;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  @include flexCenter();
+  margin-right: 10px;
+  
+  
+}
+.brand {
+  /**LOGO*/
+  text-align: center;
+  font-family: $base_ff;
+  text-transform: uppercase;
+  @include pStyle();
+  font-size: 20px;
+  color :$secondary;
+  /**GEORGIA*/
+  h2{
+    font-size: 50px;
+    margin-bottom: 0;
+    @include pStyle();
+  }
+  /**RESTAURANT*/
+  p{
+    font-size: 20px;
+    @include pStyle();
+  }
+}
+
+/**HEADING **/
+.heading{
+  font-family: $title_ff;
+  color : $primary;
+  font-size: 90px;
+  margin-bottom: 20px;
+} 
+/**SUBTITLE*/
+.subtitle{
+  font-family: $subtitle_ff;
+  color :$secondary; 
+  font-weight: 300;
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+/**SECTION GALLERY*/
+/*CARD**/
+.img-card{
+  width: 33.3%;
+  height: 30vw;
+  position: relative;
+  overflow: hidden;
+  /**IMAGE*/
+  img{
+    @extend %containerFull;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+  /**OVERLAY*/
+  .img-overlay{
+    @include size(100%, 100%);
+    position: absolute;
+    left:-100%;
+    top:0;
+    z-index: 10;
+    background-color: rgba($color: $primary, $alpha: 0.7);
+    color: $white;
+    @include flexCenter();
+    
+    flex-direction: column;
+    transition: all 0.5s ease-in-out;
+    /***OVERLAY TITLE*/
+    h2{
+      font-family: $title_ff;
+      font-size: 30px;
+      @include pStyle(capitalize)
+    }
+    /**OVERLAY P*/
+    p{
+      font-family: $subtitle_ff;
+      font-size: 20px;
+      @include pStyle(capitalize);
+      margin-bottom: 15px;
+    }
+    /*OVERLAY BTN**/
+    button{
+      width: 150px;
+      height: 50px;
+      cursor: pointer;
+      color: $primary;
+      font-size: 15px;
+      background-color: $white ;
+      border: 1px solid $primary ;
+      border-radius: 30px;
+      text-transform: uppercase;
+    }
+  
+  }
+  &:hover 
+  {
+    .img-overlay{
+      left:0;
+  }
+  }
+}

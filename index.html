@@ -1,125 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
-</head>
-<body>
-    
+    <link href="style/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
     <!--NAV-->
+
     <nav class="nav-container">
-        
-       
-            <div class="img-container">
-              <img src="/ressources/nav-img-1.jpeg" class="img1">
-              <img src="/ressources/nav-img-2.jpeg" class="img2">
-              <img src="/ressources/nav-img-3.jpeg" class="img3">
-            </div>  
-          <div class="links">
-              <a href="#">Home</a>
-              <a href="#">About Us</a>
-              <a href="#">Gallery</a>
-              <a href="#">Reservation</a>
-              <a href="#">Services</a>
-              <a href="#">Contact</a>
-          </div>      
-      
+      <div class="img-container">
+        <img src="/ressources/nav-img-1.jpeg" class="img1" />
+        <img src="/ressources/nav-img-2.jpeg" class="img2" />
+        <img src="/ressources/nav-img-3.jpeg" class="img3" />
+      </div>
+      <div class="links">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Gallery</a>
+        <a href="#">Reservation</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </div>
     </nav>
+  
     <button id="toggler" class="menu">
-        <span></span>
+      <span></span>
     </button>
     <!--Header-->
     <header>
-        <p class="brand"><span class="icon"><i class="fa-solid fa-utensils fa-xl"></i></span>Georgia <br> </p>
-        <h1>Welcome</h1>
-        <h2>Try Great Georgian Dishes</h2>
-        <button>Reservation</button>
+
+        <div class="brand">
+            <a href="#" class="logo"><i class="fas fa-utensils"></i></a>
+            <div class="text-brand">
+                <h2>Georgia</h2>
+                <p >Restaurant</p>
+            </div>
+        </div> 
+            <div class="header-text">
+                <h1 class="heading">Welcome</h1>
+                <h2 class="subtitle">Try Great Georgian Dishes</h2>
+                <button type="button" class="btn">Reservation</button>
+            </div>
+              
     </header>
+
+    <!--SECTION ABOUT US-->
     <section id="us">
-            <div class="img-container">
-                <img src="/ressources/about-us-img.png">
-            </div>
-            <div class="text">
-                <h2>About Us</h2>
-                <h3>Introduce To Georgian Dishes</h3>
-                <span>***</span>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam iure unde cupiditate quae explicabo consequuntur, 
-                    tenetur velit beatae animi quasi molestias minus atque veritatis sequi maiores eum! Ab similique id architecto minima consequatur dolor accusantium nemo sequi nulla totam. 
-                    Quasi consequatur quis sed vel illo dolor libero, eligendi corporis alias?</p>
-                <span>***</span>
-                <button>Read more</button>
-            </div>
+      <div class="img-container">
+        <img src="/ressources/about-us-img.png" />
+      </div>
+      <div class="text">
+        <h2 class="heading">About Us</h2>
+        <h3 class="subtitle">Introduce To Georgian Dishes</h3>
+        <span>***</span>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam iure
+          unde cupiditate quae explicabo consequuntur, tenetur velit beatae
+          animi quasi molestias minus atque veritatis sequi maiores eum! Ab
+          similique id architecto minima consequatur dolor accusantium nemo
+          sequi nulla totam. Quasi consequatur quis sed vel illo dolor libero,
+          eligendi corporis alias?
+        </p>
+        <span>***</span>
+        <button type="button" class="btn">Read more</button>
+      </div>
     </section>
+  <!--SECTION GALLLERY-->
     <section id="gallery">
-         <div class="img-card">
-            <img src="/ressources/gallery-img-1.jpeg">
-            <div class="img-overlay">
-                <p>Food Name</p>
-                <p>Price: $30.00</p>
-                <button>Order now</button>
-            </div>
-         </div>   
-
-         <div class="img-card">
-            <img src="/ressources/gallery-img-2.jpeg">
-            <div class="img-overlay">
-                <p>Food Name</p>
-                <p>Price: $30.00</p>
-                <button>Order now</button>
-            </div>
-         </div>   
-
-         <div class="img-card">
-            <img src="/ressources/gallery-img-3.jpeg">
-            <div class="img-overlay">
-                <p>Food Name</p>
-                <p>Price: $30.00</p>
-                <button>Order now</button>
-            </div>
-         </div>   
-
-         <div class="img-card">
-            <img src="/ressources/gallery-img-4.jpeg">
-            <div class="img-overlay">
-                <p>Food Name</p>
-                <p>Price: $30.00</p>
-                <button>Order now</button>
-            </div>
-         </div>   
-
-         <div class="img-card">
-            <img src="/ressources/gallery-img-5.jpeg">
-            <div class="img-overlay">
-                <p>Food Name</p>
-                <p>Price: $30.00</p>
-                <button>Order now</button>
-            </div>
-         </div>   
-
-         <div class="img-card">
-            <img src="/ressources/gallery-img-6.jpeg">
-            <div class="img-overlay">
-                <p>Food Name</p>
-                <p>Price: $30.00</p>
-                <button>Order now</button>
-            </div>
-         </div>   
-
+      <!--PREMIER IMAGE-->
+      <div class="img-card">
+        <img src="/ressources/gallery-img-1.jpeg" />
+        <div class="img-overlay">
+          <h2>Food Name</h2>
+          <p>Price: $30.00</p>
+          <button type="button" class="overlay-btn">Order now</button>
+        </div>
+      </div>
+      <!---DEUXIEME IMG-->
+      <div class="img-card">
+        <img src="/ressources/gallery-img-2.jpeg" />
+        <div class="img-overlay">
+          <h2>Food Name</h2>
+          <p>Price: $30.00</p>
+          <button type="button" class="overlay-btn">Order now</button>
+        </div>
+      </div>
+        <!--TROISIEME IMAGE-->
+      <div class="img-card">
+        <img src="/ressources/gallery-img-3.jpeg" />
+        <div class="img-overlay">
+          <h2>Food Name</h2>
+          <p>Price: $30.00</p>
+          <button type="button" class="overlay-btn">Order now</button>
+        </div>
+      </div>
+      <!--QUATRIEME IMAGE-->  
+      <div class="img-card">
+        <img src="/ressources/gallery-img-4.jpeg" />
+        <div class="img-overlay">
+          <h2>Food Name</h2>
+          <p>Price: $30.00</p>
+          <button type="button" class="overlay-btn">Order now</button>
+        </div>
+      </div>
+      <!--CINQUIEME IMAGE-->
+      <div class="img-card">
+        <img src="/ressources/gallery-img-5.jpeg" />
+        <div class="img-overlay">
+          <h2>Food Name</h2>
+          <p>Price: $30.00</p>
+          <button type="button" class="overlay-btn">Order now</button>
+        </div>
+      </div>
+        <!--SIXIEME IMAGE-->
+      <div class="img-card">
+        <img src="/ressources/gallery-img-6.jpeg" />
+        <div class="img-overlay">
+          <h2>Food Name</h2>
+          <p>Price: $30.00</p>
+          <button type="button" class="overlay-btn">Order now</button>
+        </div>
+      </div>
     </section>
+
+        <!--FOOTER-->
     <footer>
-        <p class="brand"><span class="icon"><i class="fa-solid fa-utensils fa-xl"></i></span>Georgia <br> </p>
-        <div class="network">
-            <a href="#"><i class="fa-brands fa-square-facebook fa-xl"></i></a>
-            <a href="#"> <i class="fa-brands fa-instagram fa-xl"></i></a>
-            <a href="#"> <i class="fa-brands fa-google-plus-g fa-xl"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube fa-xl"></i></a>
+      <!--BRAND-->
+      <div class="brand">
+        <a href="#" class="logo"><i class="fas fa-utensils"></i></a>
+        <div class="text-brand">
+            <h2>Georgia</h2>
+            <p >Restaurant</p>
+        </div>
+    </div> 
+        <!--RESEAUX SOCIAUX-->
+      <div class="network">
+        <a href="#"><i class="fa-brands fa-square-facebook fa-xl"></i></a>
+        <a href="#"> <i class="fa-brands fa-instagram fa-xl"></i></a>
+        <a href="#"> <i class="fa-brands fa-google-plus-g fa-xl"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube fa-xl"></i></a>
+      </div>
+        <!--COPYRIGHT-->
+      <div class="copyright">
+        <p>
+            &copy; Copyright. Restaurant "Georgia". All Rights Reserved
+        </p>
         </div>
     </footer>
-    <script src="app.js"></script>
-</body>
+
+    <script src="js/app.js"></script>
+
+  </body>
 </html>
